@@ -30,12 +30,14 @@ public class EGiftVocherStepDefinition {
 	@When("^clicks on sign in and click on Login$")
 	public void clicks_on_sign_in_and_click_on_Login() throws IOException {
 		loginpage.signinButton();
-		driver.get(ExcelFile.getExcelData("login"));
+		loginpage.login();
 
 	}
 
 	@Then("^enter Emailid click on continue$")
-	public void enter_Emailid_click_on_continue() throws IOException {
+	public void enter_Emailid_click_on_continue() throws IOException, InterruptedException {
+		Thread.sleep(2000);
+		driver.switchTo().frame(0);
 
 		loginpage.emailTxtField();
 		loginpage.continueButton();

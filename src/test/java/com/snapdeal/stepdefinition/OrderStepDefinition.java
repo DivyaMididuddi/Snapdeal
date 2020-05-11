@@ -31,11 +31,13 @@ public class OrderStepDefinition {
 	@When("^clicks on signin and clicks on login$")
 	public void clicks_on_signin_and_clicks_on_login() throws IOException {
 		loginpage.signinButton();
-		driver.get(ExcelFile.getExcelData("login"));
+		loginpage.login();
 	}
 
 	@Then("^enters Email$")
-	public void enters_Email() throws IOException {
+	public void enters_Email() throws IOException, InterruptedException {
+		Thread.sleep(2000);
+		driver.switchTo().frame(0);
 		loginpage.emailTxtField();
 
 	}
@@ -60,7 +62,7 @@ public class OrderStepDefinition {
 
 	@Then("^homePage is displayed$")
 	public void homepage_is_displayed() throws InterruptedException {
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		String actual = driver.getTitle();
 		System.out.println(actual);
 		String expected = "Online Shopping Site India - Shop Electronics, Mobiles, Men & Women Clothing, Shoes - www. Snapdeal.com";

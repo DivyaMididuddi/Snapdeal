@@ -19,16 +19,12 @@ public class ExcelFile {
 	
 
 		String url=wb.getSheet("Sheet1").getRow(1).getCell(0).getStringCellValue();
-		String login=wb.getSheet("Sheet1").getRow(1).getCell(1).getStringCellValue();
-		String emailid=wb.getSheet("Sheet1").getRow(1).getCell(2).getStringCellValue();
-		String password=wb.getSheet("Sheet1").getRow(1).getCell(3).getStringCellValue();
+		String emailid=wb.getSheet("Sheet1").getRow(1).getCell(1).getStringCellValue();
+		String password=wb.getSheet("Sheet1").getRow(1).getCell(2).getStringCellValue();
 		if(key.equalsIgnoreCase("url")) {
 			return url;
 		}
-		else if(key.equalsIgnoreCase("login")) {
-			return login;
-			
-		}
+		
 		else if(key.equalsIgnoreCase("emailid")) {
 			return emailid;
 			

@@ -35,12 +35,14 @@ public class MoveToShortListStepdefinition {
 	@Then("^click on signin and click on login$")
 	public void click_on_signin_and_click_on_login() throws IOException {
 		loginpage.signinButton();
-		driver.get(ExcelFile.getExcelData("login"));
+		loginpage.login();
 
 	}
 
 	@Then("^Enter Email click on continue$")
-	public void enter_Email_click_on_continue() throws IOException {
+	public void enter_Email_click_on_continue() throws IOException, InterruptedException {
+		Thread.sleep(2000);
+		driver.switchTo().frame(0);
 		loginpage.emailTxtField();
 		loginpage.continueButton();
 
@@ -56,7 +58,7 @@ public class MoveToShortListStepdefinition {
 	@Then("^Homepage is displayed\\.$")
 	public void homepage_is_displayed() throws InterruptedException {
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		String actual = driver.getTitle();
 		System.out.println(actual);
 		String expected = "Online Shopping Site India - Shop Electronics, Mobiles, Men & Women Clothing, Shoes - www. Snapdeal.com";
